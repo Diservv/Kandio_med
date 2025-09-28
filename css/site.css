@@ -6,6 +6,40 @@ body {
   color: #222;
 }
 
+
+
+/*GPT ADJUST*/
+.catalog-item {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.catalog-img img {
+  max-width: 150px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.catalog-text {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .catalog-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .catalog-img img {
+    margin: 0 auto 10px;
+  }
+}
+
+
 header {
   background: linear-gradient(90deg, #222 60%, #4f46e5 100%);
   color: #fff;

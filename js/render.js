@@ -34,3 +34,39 @@ function renderPagina(slug) {
     <div>${page.content || ''}</div>
   </div>`;
 }
+
+
+
+//GPT ADJUST
+function getData() {
+  return JSON.parse(localStorage.getItem('meuCMSData') || '{"pages":[],"catalogItems":[]}');
+}
+
+function renderCatalogo(filtro = '') {
+  const data = getData();
+  const el = document.getElementById('catalogo');
+  if (!el) return;
+
+  let items = data.catalogItems;
+
+  if (filtro) {
+    items = items.filter(item => item.title.toLowerCase().includes(filtro));
+  }
+
+  if (items.length === 0) {
+    el.innerHTML = '<em>Nenhum item encontrado.</em>';
+    return;
+  }
+
+  el.innerHTML = items.map(item => `
+    <div class="catalog-item">
+      <div class="catalog-img">
+        ${item.image ? `<img src="${item.image}" alt="${item.title}">` : ''}
+      </div>
+      <div class="catalog-text">
+        <h3>${item.title}</h3>
+        <p>${item.description || ''}</p>
+      </div>
+    </div>
+  `).join('');
+}
