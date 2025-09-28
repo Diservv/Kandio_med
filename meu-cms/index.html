@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo Público</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="assets/med..jpeg" alt="Logo" class="logo">
+      <div class="site-title">KANDIO MED.</div>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#nav1">Nav1</a>
+        <a href="#nav2">Nav2</a>
+        <a href="#nav3">Nav3</a>
+        <a href="admin.html">Painel do CEO</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Pesquisar por título..." oninput="filtrarCatalogo()">
+    </div>
+    <div id="catalogo"></div>
+  </main>
+  <script src="js/app.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCatalogo();
+    });
+    function filtrarCatalogo() {
+      const termo = document.getElementById('searchInput').value.toLowerCase();
+      renderCatalogo(termo);
+    }
+  </script>
+</body>
+</html>

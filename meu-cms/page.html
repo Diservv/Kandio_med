@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Página</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <main id="pagina"></main>
+  <script src="js/app.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+      renderPagina(slug);
+    });
+  </script>
+</body>
+</html>
